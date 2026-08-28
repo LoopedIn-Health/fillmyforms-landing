@@ -532,6 +532,7 @@ curl -X POST https://api.fillmyforms.com/v1/extract \
       <input type="email" name="email" placeholder="Email" required>
     </div>
     <textarea name="interest" placeholder="What are you interested in? (optional)" rows="2"></textarea>
+    <input type="hidden" name="_next" value="https://fillmyforms.com?submitted=1#waitlist">
     <button type="submit" class="pill">Join the waitlist</button>
   </form>
   <div class="wl-ok" id="wl-ok" style="display:none">
@@ -591,17 +592,12 @@ document.querySelectorAll(".tab").forEach(t=>{
   });
 });
 
-document.getElementById("wl-form").addEventListener("submit",async function(e){
-  e.preventDefault();
-  var btn=this.querySelector("button");
-  btn.textContent="Sending…";btn.disabled=true;
-  try{
-    var r=await fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}});
-    if(!r.ok)throw 0;
-    this.style.display="none";
-    document.getElementById("wl-ok").style.display="";
-  }catch(x){btn.textContent="Try again";btn.disabled=false}
-});
+if(new URLSearchParams(location.search).has("submitted")){
+  var f=document.getElementById("wl-form");
+  if(f)f.style.display="none";
+  var ok=document.getElementById("wl-ok");
+  if(ok)ok.style.display="";
+}
 </script>
 </body>
 </html>
