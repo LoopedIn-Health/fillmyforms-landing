@@ -529,7 +529,7 @@ curl -X POST https://api.fillmyforms.com/v1/extract \
   <form class="wl-form" id="wl-form" action="https://formspree.io/f/xqpkkgwe" method="POST">
     <div class="wl-row">
       <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
+      <input type="email" name="email" placeholder="Email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Enter a valid email address">
     </div>
     <textarea name="interest" placeholder="What are you interested in? (optional)" rows="2"></textarea>
     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
