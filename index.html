@@ -92,7 +92,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.82);backdrop-f
 
 /* ---------- bento ---------- */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.tile{background:#fff;border-radius:26px;padding:30px 30px 26px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.tile{background:#fff;border-radius:26px;padding:30px 30px 26px;box-shadow:0 2px 12px rgba(0,0,0,.04);min-width:0}
 .tile.s2{grid-column:span 2}
 .tile.s4{grid-column:span 4;text-align:center}
 .tile.s4 p{max-width:520px;margin:0 auto}
@@ -102,7 +102,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.82);backdrop-f
 .tile .mock-form{box-shadow:none;border-radius:12px;width:230px}
 .tile .mock-json{box-shadow:none;border-radius:12px;font-size:11px;background:var(--bg-2)}
 /* digitize marquee */
-.stream{overflow:hidden;margin-top:22px;
+.stream{overflow:hidden;margin-top:22px;max-width:100%;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .stream-in{display:flex;gap:12px;width:max-content;animation:drift 32s linear infinite}
@@ -164,7 +164,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.82);backdrop-f
 
 /* ---------- audiences ---------- */
 .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.acard{background:#fff;border-radius:26px;padding:34px 30px;box-shadow:0 2px 12px rgba(0,0,0,.04);display:flex;flex-direction:column}
+.acard{background:#fff;border-radius:26px;padding:34px 30px;box-shadow:0 2px 12px rgba(0,0,0,.04);display:flex;flex-direction:column;min-width:0}
 .acard.t-people{background:#f2f7fd}
 .acard.t-teams{background:#f3f9f4}
 .acard.t-agents{background:#fdf8ec}
@@ -222,18 +222,40 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:22px 0;fo
 @media (max-width:900px){
   .hero h1{font-size:46px}
   .hero .sub{font-size:20px}
+  .hero .links{flex-wrap:wrap;gap:18px}
   .stage{flex-direction:column;gap:22px}
   .stage .arrow{transform:rotate(90deg)}
+  .jstack{width:min(340px,100%)}
   .bento{grid-template-columns:1fr 1fr}
   .tile.s2,.tile.s4{grid-column:span 2}
   .aud-grid{grid-template-columns:1fr}
   .sec-head h2{font-size:34px}
   .close-sec h2{font-size:38px}
+  .foot-in{flex-wrap:wrap;row-gap:8px}
   .nav-links{display:none}
 }
 @media (max-width:600px){
+  .hero{padding:60px 0 52px}
+  .hero h1{font-size:34px}
+  .hero .sub{font-size:17.5px}
+  .stage{margin-top:44px}
+  .sec{padding:60px 0}
+  .close-sec{padding:72px 0}
   .bento{grid-template-columns:1fr}
   .tile.s2,.tile.s4{grid-column:span 1}
+  .tile{padding:24px 22px 22px}
+  .jstack{height:190px}
+  .jstack .mock-json{font-size:10px;padding:14px 16px;left:50%;transform:translate(-50%,-50%)}
+  .sugg .k{width:58px;font-size:10px}
+  .sugg .row{font-size:12px;gap:8px}
+  .sugg .v{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sugg-sig .sign-meta{font-size:10px;white-space:nowrap}
+  .tile.s2 .pubviz .mini{width:104px}
+  .sec-head h2{font-size:29px}
+  .sec-head{margin-bottom:36px}
+  .close-sec h2{font-size:32px}
+  .codebox pre{font-size:11px;padding:16px 14px}
+  .acard{padding:26px 22px}
   .wl-row{flex-direction:column}
 }
 </style>
